@@ -72,7 +72,7 @@ The analysis revealed that **B&J Biscuits** was inadvertently prioritizing volum
 
 ---
 
-# ⚠️ Assumptions and Caveats
+## ⚠️ Assumptions and Caveats
 
 * **Date Normalization:** The `Transaction Date` column contained mixed formats (serial numbers vs. standard dates), which were standardized to allow for accurate quarterly analysis.
 * **Cost Consistency:** `COGS` (Cost of Goods Sold) and `Unit Cost` were assumed to be static and accurate as provided in the source file, without accounting for potential supply chain fluctuations.
