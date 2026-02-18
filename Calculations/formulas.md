@@ -82,10 +82,13 @@ Categorical logic used to group customers and products for pivot table analysis.
 
 ## 🧠 Explanation of Logic & Best Practices
 
-**Modern Lookups (`XLOOKUP`)**: Unlike the older `VLOOKUP`, `XLOOKUP` is used here because it is more robust—it doesn't require the product code to be the first column in the reference array and won't break if new columns are inserted into the source data.
+* **Modern Lookups (`XLOOKUP`)**: Unlike the older `VLOOKUP`, `XLOOKUP` is used here because it is more robust—it doesn't require the product code to be the first column in the reference array and won't break if new columns are inserted into the source data.
 
-**Dynamic Age Calculation**: Using undocumented `DATEDIF` function with the "Y" parameter ensures we get the completed years of age. By comparing the `Date of Birth` to the `Transaction Date` (rather than the current date), the data remains historically accurate even if the file is opened years later.
+* **Dynamic Age Calculation**: Using undocumented `DATEDIF` function with the "Y" parameter ensures we get the completed years of age. By comparing the `Date of Birth` to the `Transaction Date` (rather than the current date), the data remains historically accurate even if the file is opened years later.
 
-**Mathematical Binning (`FLOOR`)**: The `Age Group` formula uses the `FLOOR` function to create mathematical boundaries. By rounding the age down to the nearest multiple of 15 and then concatenating a string, it automatically creates uniform buckets like "30 - 44" without requiring a long, complex `IFS` statement.
+* **Mathematical Binning (`FLOOR`)**: The `Age Group` formula uses the `FLOOR` function to create mathematical boundaries. By rounding the age down to the nearest multiple of 15 and then concatenating a string, it automatically creates uniform buckets like "30 - 44" without requiring a long, complex `IFS` statement.
 
-**Revenue Recognition**: Note that `COGS` and `Revenue` are calculated at the row level. This is a best practice for Excel Data Models, as it allows for simple summation in Pivot Tables while maintaining the ability to drill down into specific transaction variances.
+* **Revenue Recognition**: Note that `COGS` and `Revenue` are calculated at the row level. This is a best practice for Excel Data Models, as it allows for simple summation in Pivot Tables while maintaining the ability to drill down into specific transaction variances.
+
+
+### 📌 The rest of the calculations were performed using the dynamic features of Pivot Tables.
